@@ -5,7 +5,7 @@ A simple FPS tracker application built using GTK and C++ that displays the frame
 ## Features
 
 - Displays FPS on the top-left corner of the screen.
-- Works on **Wayland**, **X11**, and **Windows**.
+- Works on **Wayland**, **X11**.
 - Uses GTK for the GUI.
 - Semi-transparent background for a minimalistic look.
 
@@ -18,7 +18,6 @@ Before running the application, you'll need to install the necessary dependencie
 - **GTK 3**: For creating the GUI.
 - **X11** (for X11 users): To interact with the X server for FPS monitoring.
 - **Wayland** (for Wayland users): For Wayland-based FPS monitoring.
-- **Windows API** (for Windows users): Uses high-resolution timers for FPS tracking.
 
 ## Installation
 
@@ -66,46 +65,17 @@ g++ -o fps_tracker main.cpp `pkg-config --cflags --libs gtk+-3.0` -lX11 -lXcompo
 
 ---
 
-### Windows
-
-#### Step 1: Install Dependencies
-
-Install GTK using **winget**:
-
-```powershell
-winget install GNOME.GTK
-```
-
-#### Step 2: Compile the Code
-
-Compile using MinGW:
-
-```bash
-g++ -o fps_tracker.exe main.cpp -mwindows `pkg-config --cflags --libs gtk+-3.0` -std=c++11 -lpthread
-```
-
-#### Step 3: Run the Application
-
-Simply run:
-
-```bash
-fps_tracker.exe
-```
-
----
-
 ## How it Works
 
 - The application detects the running display server:
   - **Wayland**: Uses the Wayland protocol for FPS tracking.
   - **X11**: Uses the `XComposite` extension for FPS tracking.
-  - **Windows**: Uses Windows high-resolution timing functions for FPS tracking.
 - The FPS is calculated and updated in real-time using a separate thread.
 
 ### Key Components:
 
 - **GTK for GUI**: Creates the overlay window.
-- **X11/Wayland/Windows APIs**: Detects the platform and calculates FPS accordingly.
+- **X11/Wayland**: Detects the platform and calculates FPS accordingly.
 - **Threading**: Ensures real-time FPS updates without blocking the UI.
 
 ## Troubleshooting
@@ -121,16 +91,6 @@ fps_tracker.exe
 
 ### Windows
 
-#### Issue: "GTK not found"
-- Ensure GTK is installed via **winget**.
-
-#### Issue: "Application crashes on startup"
-- Try running as administrator.
-- Check if MinGW compiled it correctly with GTK support.
-
----
-
-## License
 
 This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**.
 
