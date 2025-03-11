@@ -49,7 +49,7 @@ sudo pacman -S base-devel gtk3 x11-utils xorg-xcomposite xorg-xfixes wayland-pro
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/Linux-FPS-Tracker.git
+git clone https://github.com/Roam45/Linux-FPS-Tracker.git
 cd Linux-FPS-Tracker
 ```
 
